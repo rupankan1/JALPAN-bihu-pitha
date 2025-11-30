@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JALPAN - Authentic Assamese Bihu Pitha Pona</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: #faf8f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+        
+        nav {
+            background: #654321;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #8B4513;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23D2691E" width="1200" height="600"/><circle fill="%238B4513" cx="200" cy="150" r="80" opacity="0.3"/><circle fill="%238B4513" cx="800" cy="400" r="100" opacity="0.3"/><circle fill="%23CD853F" cx="1000" cy="200" r="60" opacity="0.3"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #FFD700;
+            color: #654321;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #8B4513;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #D2691E;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .product-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-card h3 {
+            color: #8B4513;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .about-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature h3 {
+            color: #8B4513;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 2rem auto;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info p {
+            margin: 1rem 0;
+        }
+        
+        footer {
+            background: #654321;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🌾 JALPAN 🌾</div>
+        <div class="tagline">Authentic Assamese Bihu Pitha Pona</div>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <section class="hero" id="home">
+        <h1>Taste the Tradition of Assam</h1>
+        <p>Experience the authentic flavors of Bihu with our handcrafted traditional pitha pona, made with love and heritage recipes passed down through generations.</p>
+        <a href="#contact" class="cta-button">Order Now</a>
+    </section>
+    
+    <section class="container" id="products">
+        <h2 class="section-title">Our Traditional Delicacies</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">🥞</div>
+                <h3>Til Pitha</h3>
+                <p>Classic sesame-filled rice pancakes, crispy on the outside and sweet on the inside. A Bihu festival favorite!</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">🍚</div>
+                <h3>Ghila Pitha</h3>
+                <p>Deep-fried rice flour fritters with a perfect golden crunch. Best enjoyed with tea during celebrations.</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">🫔</div>
+                <h3>Sunga Pitha</h3>
+                <p>Bamboo-cooked rice cake with a unique smoky flavor. Traditional preparation method for authentic taste.</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">🥮</div>
+                <h3>Tekeli Pitha</h3>
+                <p>Steamed rice cakes with jaggery filling. Soft, sweet, and absolutely delicious!</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">🍡</div>
+                <h3>Narikol Laru</h3>
+                <p>Coconut and jaggery sweet balls. A traditional pona that melts in your mouth.</p>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">🍯</div>
+                <h3>Pitha Assortment</h3>
+                <p>Can't decide? Try our special assortment box with a variety of traditional pithas!</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            <p>JALPAN is more than just a brand – it's a celebration of Assamese culture and tradition. We bring you the authentic taste of Bihu festival delicacies, prepared using time-honored recipes and the finest local ingredients.</p>
+            <p>Each pitha and pona is handcrafted with care, preserving the traditional methods that have been passed down through generations. We believe in keeping our heritage alive, one delicious bite at a time.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">✨</div>
+                    <h3>100% Authentic</h3>
+                    <p>Traditional recipes and methods</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Natural Ingredients</h3>
+                    <p>Fresh, locally sourced produce</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Handcrafted</h3>
+                    <p>Made with love and care</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">🎉</div>
+                    <h3>Festival Ready</h3>
+                    <p>Perfect for celebrations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" style="color: white;">Get in Touch</h2>
+        <div class="contact-info">
+            <p>📞 Phone: +91 XXXXX XXXXX</p>
+            <p>📧 Email: orders@jalpan.com</p>
+            <p>📍 Location: Assam, India</p>
+            <p style="margin-top: 2rem;">Follow us on social media for updates and special offers!</p>
+        </div>
+        <a href="mailto:orders@jalpan.com" class="cta-button" style="margin-top: 1rem;">Place Your Order</a>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 JALPAN - Authentic Assamese Bihu Pitha Pona. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">Bringing Assamese tradition to your table 🌾</p>
+    </footer>
+</body>
+</html>
